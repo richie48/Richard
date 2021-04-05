@@ -1,11 +1,22 @@
 const express = require('express');
+//To use the import rather than require i will need to add "type":"module" in my package.json
 const products = require('./data/products');
+const dotenv = require('dotenv');
+
+//we didn't need to set a path since we put the file i application root
+dotenv.config();
 
 const app = express();
 
-const server = app.listen(5000, console.log('server running'));
+const PORT = process.env.PORT || 5000;
+const server = app.listen(
+  PORT,
+  console.log(
+    `server running in ${process.env.NODE_ENV} on port ${process.env.PORT}`
+  )
+);
 
-//req must always be referenced before response
+//req must always be referenced before res
 app.get('/api/products', (req, res) => {
   res.json(products);
 });
