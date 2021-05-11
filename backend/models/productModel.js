@@ -39,7 +39,8 @@ const productSchema = mongoose.Schema(
     },
 
     category: {
-      type: Boolean,
+      //issue with the code was category was a boolean rather than a string
+      type: String,
       required: true,
     },
     description: {

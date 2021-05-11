@@ -39,6 +39,7 @@ const importData = async () => {
     process.exit(1);
   }
 };
+//products were having issues withi getting imported
 
 const destroyData = async () => {
   try {
