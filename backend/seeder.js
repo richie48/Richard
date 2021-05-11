@@ -23,6 +23,7 @@ const importData = async () => {
     //to put the created uaers in an array
     const createdUsers = await User.insertMany(users);
     //because we want to have the admin user's id from mongoose
+
     const adminUserId = createdUsers[0]._id;
 
     //Since we want all the products to be added by the admin user we map through the products and used the

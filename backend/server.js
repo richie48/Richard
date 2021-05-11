@@ -1,6 +1,7 @@
 const express = require('express');
+const productRoute = require('./routes/productRoute');
+const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 //To use the import rather than require i will need to add "type":"module" in my package.json
-const products = require('./data/products');
 const dotenv = require('dotenv');
 const connectDB = require('./db');
 const colors = require('colors');
@@ -19,13 +20,7 @@ const server = app.listen(
   )
 );
 
-//req must always be referenced before res
-app.get('/api/products', (req, res) => {
-  res.json(products);
-});
+app.use('/api/products', productRoute);
 
-//get a single product
-app.get('/api/products/:id', (req, res) => {
-  const product = products.find((product) => (product._id = req.params.id));
-  res.json(product);
-});
+app.use(notFound);
+app.use(errorHandler);
