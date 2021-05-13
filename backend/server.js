@@ -21,6 +21,7 @@ const server = app.listen(
 );
 
 app.use('/api/products', productRoute);
-
+//for accessing all unknown routes
 app.use(notFound);
+
 app.use(errorHandler);
