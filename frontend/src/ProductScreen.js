@@ -76,5 +76,6 @@ const ProductScreen = ({ match }) => {
     </div>
   );
 };
+//flush makes your details remain within its div or container
 
 export default ProductScreen;

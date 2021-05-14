@@ -73,10 +73,12 @@ Rating.defaultProps = {
   color: '#f8e825',
 };
 
-// when calling proptypes on the function it starts with lowercase
+// when calling proptypes on the function starts with lowercase
 Rating.propTypes = {
   value: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   color: PropTypes.string,
 };
+
+//span is an inline ccontainer for phrasing content,and thats why it is a good option for ratings
 export default Rating;

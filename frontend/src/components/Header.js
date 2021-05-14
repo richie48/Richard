@@ -30,5 +30,6 @@ const Header = () => {
     </header>
   );
 };
+//for the navbar you can get them on reactbootstrap site,them edit to your needs
 
 export default Header;

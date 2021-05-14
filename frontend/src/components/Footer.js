@@ -11,5 +11,6 @@ const Footer = () => {
     </footer>
   );
 };
+//py-3 is for padding top and bottom by 3
 
 export default Footer;
