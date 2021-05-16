@@ -4,9 +4,10 @@ import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import Rating from './Rating';
 import axios from 'axios';
 
-//Have to bring in match as props efore using match.params.id
+//Have to bring in match as props before using match.params.id
 const ProductScreen = ({ match }) => {
   const [product, setProduct] = useState([]);
+  //we use useeffect when we are tryig to fire up something while the application is running
   useEffect(() => {
     const fetchProduct = async () => {
       const res = await axios.get(`/api/products/${match.params.id}`);
@@ -77,5 +78,6 @@ const ProductScreen = ({ match }) => {
   );
 };
 //flush makes your details remain within its div or container
-
+//You can now use Bootstrap classes with ReactJS code after the Bootstrap stylesheet issuccessfully integrated into a React app.
+//To best use ReactJS, it would be ideal to import Bootstrap classes as React components. Luckily, this is done by utilizing third-party libraries like react-bootstrap and reactstrap
 export default ProductScreen;
