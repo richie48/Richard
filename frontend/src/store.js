@@ -3,9 +3,15 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { productListReducer } from '../src/reducers/productReducer';
+import {
+  productListReducer,
+  productDetailsReducer,
+} from '../src/reducers/productReducer';
 
-const reducer = combineReducers({ productList: productListReducer });
+const reducer = combineReducers({
+  productList: productListReducer,
+  productDetails: productDetailsReducer,
+});
 
 //If we want something to be loaded put in here as an initial state
 const initialState = {};

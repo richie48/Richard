@@ -3,7 +3,7 @@ import React from 'react';
 //we would be inmporting a spinner from react bootstrap,we can look at the documentation
 import { Spinner } from 'react-bootstrap';
 
-Loader = () => {
+const Loader = () => {
   return (
     <Spinner
       animation="border"
