@@ -5,8 +5,10 @@ export const cartReducer = (state = { cartItems: [], action }) => {
     case CART_ADD_ITEM:
       const item = action.payload;
 
+      //checks if item in the payload is already in the state
       const existItem = state.cartItems.find((x) => x.product === item.product);
-
+      //if the item exist, we map through all the items that are in the state and see if they are the same if not we spread all the iteems x
+      //if the item doesnt exist in the state we copy every cart item in the state and add the item
       if (existItem) {
         return {
           ...state,
@@ -17,7 +19,7 @@ export const cartReducer = (state = { cartItems: [], action }) => {
       } else {
         return {
           ...state,
-          cartItems: [...state, cartItems, item],
+          cartItems: [...state.cartItems, item],
         };
       }
     default:
