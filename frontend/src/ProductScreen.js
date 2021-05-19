@@ -18,7 +18,7 @@ import { listProductDetails } from './actions/productActions';
 //Have to bring in match as props before using match.params.id
 const ProductScreen = ({ history, match }) => {
   //it sets quantity use state to zero by default..I had an error when i used [] tha () after useState
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
 
   const productDetails = useSelector((state) => state.productDetails);
