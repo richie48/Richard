@@ -1,5 +1,6 @@
 const express = require('express');
 const productRoute = require('./routes/productRoute');
+const userRoute = require('./routes/userRoute');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 //To use the import rather than require i will need to add "type":"module" in my package.json
 const dotenv = require('dotenv');
@@ -12,6 +13,9 @@ connectDB();
 
 const app = express();
 
+//body parser
+app.use(express.body());
+
 const PORT = process.env.PORT || 5000;
 const server = app.listen(
   PORT,
@@ -21,6 +25,8 @@ const server = app.listen(
 );
 
 app.use('/api/products', productRoute);
+app.use('/api/products', userRoute);
+
 //for accessing all unknown routes
 app.use(notFound);
 
