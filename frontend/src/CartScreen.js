@@ -31,6 +31,12 @@ const CartScreen = ({ match, location, history }) => {
     }
   }, [dispatch, productId, qty]);
 
+  //just initializing checkoutHandlerwill work on it after
+  const checkoutHandler = () => {
+    //what his does is when checkout is called,if they are logged in it goes to shipping if they aren't it goes to login
+    history.push('/login?redirect=shipping');
+  };
+
   return (
     <Row>
       <Col md={8}>
@@ -76,7 +82,7 @@ const CartScreen = ({ match, location, history }) => {
                         () =>
                           dispatch(
                             removeFromCart(item.product)
-                          ) /*this this expression should be in dispatch*/
+                          ) /*this this expression should be in dispatch....iitem,product if logged is the id*/
                       }
                     >
                       <i className="fas fa-trash"></i>
@@ -92,6 +98,7 @@ const CartScreen = ({ match, location, history }) => {
         <Card>
           <ListGroup variant="flush">
             <ListGroup.Item>
+              {/*we used an higher order method to accumulate all the subtotals starting at 0...Did the same for prices...reduce is reactive*/}
               <h2>
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 items
@@ -100,6 +107,16 @@ const CartScreen = ({ match, location, history }) => {
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Button
+                type="button"
+                className="btn-block"
+                disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
+              >
+                Proceed To Checkout
+              </Button>
             </ListGroup.Item>
           </ListGroup>
         </Card>
