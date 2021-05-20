@@ -20,3 +20,5 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
   //we use our local storage API,save as cartItems.....WE save the entire cart and covert to json since we can only save strings.
   localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 };
+
+export const removeFromCart = (id, qty) => async (dispatch) => {};
