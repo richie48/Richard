@@ -19,7 +19,7 @@ const reviewSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-mongoose.model('Review', reviewSchema);
+// modules.exports = mongoose.model('Review', reviewSchema);
 
 const productSchema = mongoose.Schema(
   {
