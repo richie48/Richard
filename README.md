@@ -1,1 +1,1 @@
-# Some parts of an e-commerce web app
+# Built an e-commerce web app
